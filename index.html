@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Eat Dem Boats</title>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+      
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+      <script src="https://unpkg.com/aframe-aabb-collider-component@^2.2.1/dist/aframe-aabb-collider-component.min.js"></script> 
+       <script src="Game.js"></script>
+    </head>
+    <body>
+      
+
+<a-scene start-game>
+ <a-assets> 
+      <audio src="capstonemusic.mp3" id="music">
+        </audio>
+  
+      
+      </a-assets>
+
+  
+<a-entity></a-entity>
+  
+    
+    <a-gltf-model 
+                aabb-collider='objects:.shark;'
+                src="Tugboat.gltf"    
+                scale="0.3 0.3 0.3"
+                visible="false"
+                class="dummy-boat"
+                debug="true">
+                
+    </a-gltf-model>
+  
+  <a-text value="You Win!" position="0 0.045 -0.1" scale="0.05 0.05 0.05" id="win" align="center" visible="false"></a-text>
+    <a-text value="you lose :(" position="0 0.045 -0.1" scale="0.05 0.05 0.05" id="lose" align="center" visible="false"></a-text>   
+       
+<a-entity id="shark" wasd-controls="acceleration:750" position="0 1.6 0">
+    <a-entity id="rig" position="0 0 -5.75">
+    <a-camera id="camera" wasd-controls-enabled=false>
+    <a-text value="score:0" position="0 0.075 -0.1" scale="0.05 0.05 0.05"   id="scoreText" align="center"></a-text>
+    <a-text value="30 seconds left" position="0 0.065 -0.1" scale="0.05 0.05 0.05" id="timer" align="center"></a-text>
+      </a-camera>
+</a-entity>
+ <a-gltf-model aabb-collider='objects:.boat;'
+                class="shark"
+                src="shark.gltf"    
+                position="1 0 -9"
+                scale="0.3 0.3 0.3"
+                sound="src: url(capstonemusic.mp3); autoplay: true; loop: true"
+                rotation="0 180 0"
+                debug="true";>
+
+   
+  
+
+    </a-gltf-model></a-entity>
+  
+    
+  <a-ocean position="-3 -5 -6" scale="75 75 25"></a-ocean>
+
+  
+  
+
+  <a-sky color="skyblue"></a-sky>
+      
+      
+      </a-scene>
+      
+ 
+
+
+
+    </body>
+</html>
